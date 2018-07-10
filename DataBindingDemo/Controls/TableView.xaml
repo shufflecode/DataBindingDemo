@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="DataBindingDemo.Controls.TableView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <!--Der Datacontext des UserControls ist erstmal geerbt vom UI, in der es eingebunden ist
+    daher führt das Binding in das MainWindow-->
+    <Grid Background="White">
+        <Border BorderBrush="Black"
+                Margin="5,5,5,5"
+                BorderThickness="1">
+            <StackPanel>
+                <Label Content="{Binding DemoTitle}" 
+                Cursor="Hand"
+                MouseEnter="UIElement_OnMouseEnter"/>
+            </StackPanel>
+        </Border>
+        <!--Der Datacontext des Stackpanels wird manuell im Code behind gesetzt-->
+        <Border BorderThickness="1"
+                Margin="5,5,5,5"
+                BorderBrush="Black">
+        <StackPanel Name="LayoutRoot" Margin="0,50,0,0">
+              <TextBlock Text="{Binding Table.Name}" 
+                         Cursor="Hand"
+                         MouseEnter="UIElement_OnMouseEnter"/>
+              <DataGrid ItemsSource="{Binding Table.Entries}"
+                        Cursor="Hand"
+                        MouseEnter="UIElement_OnMouseEnter"/>
+          </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>
+
