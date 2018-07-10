@@ -1,27 +1,27 @@
-#### Kleines WPF Demo Projekt um DataBinding in UserControls zu visualisieren 
+#### Small WPF Demo project to show databindin in userControls
 
-Zeigt, wie ein Wiederverwendbares UserControl für eine einfache Viewmodelklasse geschrieben wird
+Shows, how a reusable usercontrol can be written with dependency propertys an manual setting of datacontext
 
- + UserControl mit Databindings einer Viewmodels
+ + UserControl with databindings into viewmodel class
 
 
 ````csharp
  <controls:TableView Table="{Binding Table2}"/>      
 ````
 
-+ Innerhalb des UserControls Databinding In das ViewModel hinein
++ in the UserControl, the databinding leads to propertys of the viewmodel
 
 
 ````csharp
 <UserControl x:Class="DataBindingDemo.Controls.TableView">
-    <!--Der Datacontext des UserControls ist erstmal geerbt vom UI, in der es eingebunden ist
-    daher führt das Binding in das MainWindow-->
+    <!--Datacontext is derived from the UI in which the control is embedded
+    therfore the binding leads to a property in MainWindow-->
     <Grid>        
         <StackPanel>
             <Label Content="{Binding DemoTitle}" 
             Cursor="Hand"/>
         </StackPanel>        
-        <!--Der Datacontext des Stackpanels wird manuell im Code behind gesetzt-->        
+        <!--Datacontext is set in code behind -->        
         <StackPanel Name="LayoutRoot">
               <TextBlock Text="{Binding Table.Name}" />
               <DataGrid ItemsSource="{Binding Table.Entries}"/>
@@ -33,7 +33,7 @@ Zeigt, wie ein Wiederverwendbares UserControl für eine einfache Viewmodelklasse 
 ```` 
 
 
-##### Die verschiendenen Datacontexte :
+##### Visualisation of the different Datacontexts :
 
 
 
